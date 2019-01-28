@@ -46,6 +46,18 @@ SOFTWARE.
 #include <string> // string, stoi, to_string
 #include <utility> // declval, forward, move, pair, swap
 
+#include <string>
+#include <sstream>
+
+namespace std {
+template<typename T>
+std::string to_string(T value) {
+    std::ostringstream os;
+    os << value;
+    return os.str();
+}
+}
+
 #include <nlohmann/json_fwd.hpp>
 #include <nlohmann/detail/macro_scope.hpp>
 #include <nlohmann/detail/meta/cpp_future.hpp>
